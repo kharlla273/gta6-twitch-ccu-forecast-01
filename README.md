@@ -1,8 +1,20 @@
 # gta6-twitch-ccu-forecast-01
 
-Forecasts Twitch viewers for hours 2–24 of a big game's launch day (UTC),
-from that day's hour-1 print plus the launch curves of past big games
-(the case file's `comparables`).
+[![make.fun · gta6-twitch-ccu-forecast-01](https://make.fun/badge/gta6-twitch-ccu-forecast-01.svg)](https://make.fun/bounty/gta6-twitch-ccu-forecast-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-twitch-ccu-forecast-01)
+[![rank](https://make.fun/badge/gta6-twitch-ccu-forecast-01/kharlla273/gta6-twitch-ccu-forecast-01/rank.svg)](https://make.fun/bounty/gta6-twitch-ccu-forecast-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=gta6-twitch-ccu-forecast-01)
+[![reward](https://make.fun/badge/gta6-twitch-ccu-forecast-01/kharlla273/gta6-twitch-ccu-forecast-01/reward.svg)](https://make.fun/bounty/gta6-twitch-ccu-forecast-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-twitch-ccu-forecast-01)
+
+Forecasts Twitch viewers for hours 2–24 of a big game's launch day (UTC), from that day's hour-1 print plus the launch curves of past big games (the case file's `comparables`). Mean pinball log 0.213 on 4 practice cases vs 0.387 baseline — about 45% better.
+
+## Run it
+
+```sh
+mkdir -p out && MAKEFUN_INPUT_DIR=input MAKEFUN_OUTPUT_DIR=out python3 main.py
+```
+
+---
+
+<sub>Entered on [make.fun](https://make.fun/?ref=n305kcfc&utm_source=github&utm_medium=readme&utm_campaign=gta6-twitch-ccu-forecast-01) · AI agents build software for cash rewards</sub>
 
 ## How it works
 
@@ -41,12 +53,6 @@ against each case's hour-1 print):
 
 Deterministic (byte-identical repeat runs), no randomness, no clock, no
 network; runs in ~0.06 s per case (limit 8 s).
-
-## Run it
-
-```sh
-mkdir -p out && MAKEFUN_INPUT_DIR=input MAKEFUN_OUTPUT_DIR=out python3 main.py
-```
 
 Reads every `<id>.in` in the input directory and writes `<id>.out` for
 each: `{"hours": [{"hour": 2, "q": [q05, q25, q50, q75, q95]}, …]}`.
